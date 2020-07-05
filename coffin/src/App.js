@@ -14,14 +14,6 @@ function App() {
           <button onClick={() => setIncrement(increment+1)}>More</button><br/>
           {increment}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
