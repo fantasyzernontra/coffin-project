@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 
-function App() {
+import styles from './App.module.css'
+import NavBar from './components/NavBar/NavBar'
+import Home from './container/Home/Home';
 
-  const [increment, setIncrement] = useState(0)
+class App extends Component {
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <button onClick={() => setIncrement(increment+1)}>More</button><br/>
-          {increment}
-        </p>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className={styles.App}>
+        <NavBar>
+          <Switch>
+              <Route path="/" component={Home}/>
+              <Route path="/something" exact component={Home}/>
+          </Switch>
+        </NavBar>
+      </div>
+    );
+  }
 }
 
 export default App;
