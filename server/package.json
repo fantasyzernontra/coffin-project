@@ -1,15 +1,19 @@
 {
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "mongoose": "^5.9.25"
   },
   "name": "server",
   "version": "1.0.0",
   "description": "api server",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  },
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon -r dotenv/config index.js"
   },
   "author": "non-nontra",
   "license": "ISC"
