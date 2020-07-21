@@ -1,10 +1,13 @@
 const mongoose = require('mongoose')
+const { incrementCounter } = require('../util/counterUtil')
 
 const coffinSchema = new mongoose.Schema({
     _id: {
+        type: Number
+    },
+    name: {
         type: String,
-        required: true,
-        trim: true
+        required: true
     },
     gender: {
         type: String,
@@ -19,10 +22,11 @@ const coffinSchema = new mongoose.Schema({
         default: "ยังไม่มีการระบุวัสดุที่ใช้"
     },
     price: {
-        type: String
+        type: String,
+        required: true
     }
 })
 
-const Coffin = mongoose.model('Coffin', coffinSchema)
+const ModernAdultCoffin = mongoose.model('ModernAdultCoffin', coffinSchema)
 
-module.exports = Coffin
+module.exports = ModernAdultCoffin

@@ -1,8 +1,8 @@
-const Coffin = require('../models/coffin')
+const Coffin = require('../models/StandardAdultCoffin')
 
 const getStandardAdultCoffin = async (req, res, next)  => {
     try {
-    const coffin = await Coffin.find({ type: "male" })
+    const coffin = await Coffin.find({})
 
     res.status(200).send(coffin)
     console.log(coffin)

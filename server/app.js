@@ -1,10 +1,15 @@
 const express = require('express')
 const app = express()
-const CoffinRoute = require('./src/routers/coffin')
+
+const StandardAdultCoffinRoute = require('./src/routers/standardAdultCoffin')
+const ModernAdultCoffinRoute = require('./src/routers/modernAdultCoffin')
 
 app.use(express.json())
 
-app.use(CoffinRoute)
+app.use(StandardAdultCoffinRoute)
+
+app.use(ModernAdultCoffinRoute)
+
 
 module.exports = app
 
