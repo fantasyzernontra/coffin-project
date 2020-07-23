@@ -1,9 +1,22 @@
 const express = require('express')
-const Coffin = require('../models/StandardAdultCoffin')
-const { getStandardAdultCoffin, addCoffin } = require('../controllers/standardAdultCoffinControllers')
-
 const Router = express.Router()
 
-Router.post('/coffin', addCoffin)
+const { 
+    getAllStandardAdultCoffin,
+    getByGenderStandardAdultCoffin,
+    getOneStandardAdultCoffin,
+    setOneStandardAdultCoffin,
+    updateOneStandardAdultCoffin
+ } = require('../controllers/standardAdultCoffinControllers')
+
+Router.get('/coffin/standardAdult', getAllStandardAdultCoffin)
+
+Router.get('/coffin/standardAdultOne', getOneStandardAdultCoffin)
+
+Router.get('/coffin/standardAdult/gender', getByGenderStandardAdultCoffin)
+
+Router.post('/coffin/standardAdult/', setOneStandardAdultCoffin)
+
+Router.patch('/coffin/standardAdult/', updateOneStandardAdultCoffin)
 
 module.exports = Router

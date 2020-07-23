@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { incrementCounter } = require('../util/counterUtil')
 
 const coffinSchema = new mongoose.Schema({
     _id: {

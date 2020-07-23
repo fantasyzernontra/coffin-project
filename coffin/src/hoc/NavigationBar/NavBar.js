@@ -12,6 +12,7 @@ import {
     NavLink,
     NavDropdown,
     DropdownItem,
+    Dropdown,
 }
     from 'react-bootstrap'
 
@@ -21,13 +22,12 @@ const NavBar = props => {
         query: '(max-width: 959px)'
     })
 
-
     return (
         <Aux>
             <Navbar collapseOnSelect bg="light" variant="light" expand="lg" sticky="top">
                 <NavbarBrand className="p-lg-3">
-                    <NavLink href="/" style={{textDecoration: 'none', color: 'black'}}>จริงใจโลงศพ</NavLink>
-                    </NavbarBrand>
+                    <NavLink href="/" style={{ textDecoration: 'none', color: 'black' }}>จริงใจโลงศพ</NavLink>
+                </NavbarBrand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse color="dark">
                     <Nav className="ml-lg-auto pr-lg-5 mr-lg-5">
@@ -35,22 +35,51 @@ const NavBar = props => {
                             href="/"
                         >
                             หน้าแรก
-                            </NavLink>
+                        </NavLink>
                         <NavDropdown title="โลงศพสำหรับผู้ใหญ่">
                             <NavDropdown className="p-2" title="ผู้ชาย" drop={isMobile ? "down" : "right"}>
                                 <DropdownItem as="button">
                                     <NavLink
-                                        href="/modern">
+                                        href="/standard">
                                         มาตรฐาน
                                         </NavLink>
                                 </DropdownItem>
                                 <DropdownItem as="button">
-                                    โมเดิร์น
-                                    </DropdownItem>
+                                    <NavLink
+                                        href="/modern">
+                                        โมเดิร์น
+                                    </NavLink>
+                                </DropdownItem>
                             </NavDropdown>
                             <NavDropdown className="p-2" title="ผู้หญิง" drop={isMobile ? "down" : "right"}>
-                                <DropdownItem as="button">มาตรฐาน</DropdownItem>
-                                <DropdownItem as="button">โมเดิร์น</DropdownItem>
+                                <DropdownItem as="button">
+                                    <NavLink
+                                        href="/standard">
+                                        มาตรฐาน
+                                    </NavLink>
+                                </DropdownItem>
+                                <DropdownItem as="button">
+                                    <NavLink
+                                        href="/modern"
+                                    >
+                                        โมเดิร์น
+                                    </NavLink>
+                                </DropdownItem>
+                            </NavDropdown>
+                            <Dropdown.Divider />
+                            <NavDropdown className="p-2" title="ทุกเพศ" drop={isMobile ? "down" : "right"}>
+                                <DropdownItem as="button">
+                                    <NavLink
+                                        href="/standard">
+                                        มาตรฐาน
+                                        </NavLink>
+                                </DropdownItem>
+                                <DropdownItem as="button">
+                                    <NavLink
+                                        href="/modern">
+                                        โมเดิร์น
+                                    </NavLink>
+                                </DropdownItem>
                             </NavDropdown>
                         </NavDropdown>
                         <NavDropdown title="โลงศพสำหรับเด็ก">
@@ -62,7 +91,22 @@ const NavBar = props => {
                                 <DropdownItem as="button">มาตรฐาน</DropdownItem>
                                 <DropdownItem as="button">โมเดิร์น</DropdownItem>
                             </NavDropdown>
-                        </NavDropdown>
+                            <Dropdown.Divider />
+                            <NavDropdown className="p-2" title="ทุกเพศ" drop={isMobile ? "down" : "right"}>
+                                <DropdownItem as="button">
+                                    <NavLink
+                                        href="/standard">
+                                        มาตรฐาน
+                                        </NavLink>
+                                </DropdownItem>
+                                <DropdownItem as="button">
+                                    <NavLink
+                                        href="/modern">
+                                        โมเดิร์น
+                                    </NavLink>
+                                </DropdownItem>
+                            </NavDropdown>
+                        </NavDropdown> 
                         <NavLink>ติดต่อเรา</NavLink>
                     </Nav>
                 </Navbar.Collapse>

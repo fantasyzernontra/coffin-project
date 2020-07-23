@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const coffinSchema = new mongoose.Schema({
+const coffinSchema = mongoose.Schema({
     _id: {
         type: Number
     },
@@ -25,6 +25,6 @@ const coffinSchema = new mongoose.Schema({
     }
 })
 
-const StandardAdultCoffin = mongoose.model('StandardAdultCoffin', coffinSchema)
+const StandardChildCoffin = mongoose.model('StandardChildCoffin', coffinSchema)
 
-module.exports = StandardAdultCoffin
+module.exports = StandardChildCoffin

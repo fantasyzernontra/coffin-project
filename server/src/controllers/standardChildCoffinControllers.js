@@ -1,10 +1,10 @@
-const ModernAdultCoffin = require('../models/ModernAdultCoffin')
+const StandardChildCoffin = require('../models/StandardChildCoffin')
 const { getCounter, incrementCounter } = require('../util/counterUtil')
 
 //GET Method
-const getAllModernAdultCoffin = async (req, res, next) => {
+const getAllStandardChildCoffin = async (req, res, next) => {
     try {
-        const coffin = await ModernAdultCoffin.find({})
+        const coffin = await StandardChildCoffin.find({})
 
         if (!coffin)
             return res.status(404).send({
@@ -22,9 +22,9 @@ const getAllModernAdultCoffin = async (req, res, next) => {
     }
 }
 
-const getOneModernAdultCoffin = async (req, res, next) => {
+const getOneStandardChildCoffin = async (req, res, next) => {
     try {
-        const coffin = await ModernAdultCoffin.findOne({})
+        const coffin = await StandardChildCoffin.findOne({})
 
         if (!coffin)
             return res.status(404).send({
@@ -42,9 +42,16 @@ const getOneModernAdultCoffin = async (req, res, next) => {
     }
 }
 
-const getByGenderModernAdultCoffin = async (req, res, next) => {
+const getByGenderStandardChildCoffin = async (req, res, next) => {
     try {
-        const coffin = await ModernAdultCoffin.find({ gender: req.body.gender })
+        if (!req.body.gender)
+            return res.status(400).send({
+                ErrorTH: 'Please Provide Gender',
+                ErrorENG: 'โปรดระบุเพศ'
+            })
+
+
+        const coffin = await StandardChildCoffin.find({ gender: req.body.gender })
 
         if (!coffin)
             return res.status(404).send({
@@ -63,11 +70,11 @@ const getByGenderModernAdultCoffin = async (req, res, next) => {
 }
 
 //POST Method
-const setOneModernAdultCoffin = async (req, res, next) => {
+const setOneStandardChildCoffin = async (req, res, next) => {
     try {
-        const counter = await getCounter("Modern/Adult")
+        const counter = await getCounter("Standard/Child")
 
-        const coffin = new ModernAdultCoffin({
+        const coffin = new StandardChildCoffin({
             _id: counter,
             name: req.body.name,
             gender: req.body.gender,
@@ -77,23 +84,22 @@ const setOneModernAdultCoffin = async (req, res, next) => {
         })
 
         await coffin.save()
-        await incrementCounter("Modern/Adult")
+        await incrementCounter("Standard/Child")
 
         res.status(201).send(coffin)
+        next()
     } catch (err) {
         res.status(400).send({
             ErrorENG: 'Uncompleted to save new Coffin. Please Try Again or Contact Technical Support (+66946211452)',
             ErrorTH: 'บันทึกโลงศพไม่สำเร็จ โปรดลองอีกครั้งหรือติดต่อผู้เชี่ยวชาญ (+66946211452)'
         })
-        console.log(err)
     }
 }
 
 //PATCH Method
-
-const updateOneModernAdultCoffin = async (req, res, next) => {
+const updateOneStandardChildCoffin = async (req, res, next) => {
     const updates = Object.keys(req.body)
-    const allowedUpdated = ['name', 'gender', 'description', 'materials', 'price']
+    const allowedUpdated = ['_id', 'name', 'gender', 'description', 'materials', 'price']
 
     const isValidOperation = updates.every(update => allowedUpdated.includes(update))
     if (!isValidOperation)
@@ -104,7 +110,7 @@ const updateOneModernAdultCoffin = async (req, res, next) => {
 
 
     try {
-        const coffin = await ModernAdultCoffin.findOne({ _id: req.body.id })
+        const coffin = await StandardChildCoffin.findOne({ _id: req.body._id })
 
         if (!coffin)
             return res.status(404).send({
@@ -125,9 +131,9 @@ const updateOneModernAdultCoffin = async (req, res, next) => {
 }
 
 module.exports = {
-    getAllModernAdultCoffin,
-    setOneModernAdultCoffin,
-    getOneModernAdultCoffin,
-    getByGenderModernAdultCoffin,
-    updateOneModernAdultCoffin
+    getAllStandardChildCoffin,
+    getOneStandardChildCoffin,
+    getByGenderStandardChildCoffin,
+    setOneStandardChildCoffin,
+    updateOneStandardChildCoffin
 }

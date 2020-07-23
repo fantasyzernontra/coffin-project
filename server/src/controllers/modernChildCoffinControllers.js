@@ -1,10 +1,10 @@
-const StandardAdultCoffin = require('../models/StandardAdultCoffin')
+const ModernChildCoffin = require('../models/ModernChildCoffin')
 const { getCounter, incrementCounter } = require('../util/counterUtil')
 
 //GET Method
-const getAllStandardAdultCoffin = async (req, res, next) => {
+const getAllModernChildCoffin = async (req, res, next) => {
     try {
-        const coffin = await StandardAdultCoffin.find({})
+        const coffin = await ModernChildCoffin.find({})
 
         if (!coffin)
             return res.status(404).send({
@@ -22,9 +22,9 @@ const getAllStandardAdultCoffin = async (req, res, next) => {
     }
 }
 
-const getOneStandardAdultCoffin = async (req, res, next) => {
+const getOneModernChildCoffin = async (req, res, next) => {
     try {
-        const coffin = await StandardAdultCoffin.findOne({})
+        const coffin = await ModernChildCoffin.findOne({})
 
         if (!coffin)
             return res.status(404).send({
@@ -36,11 +36,13 @@ const getOneStandardAdultCoffin = async (req, res, next) => {
 
         next()
     } catch (err) {
-
+        res.status(400).send({
+            Error: 'Something Went Wrong. Please Try Again'
+        })
     }
 }
 
-const getByGenderStandardAdultCoffin = async (req, res, next) => {
+const getByGenderModernChildCoffin = async (req, res, next) => {
     try {
         if (!req.body.gender)
             return res.status(400).send({
@@ -48,7 +50,7 @@ const getByGenderStandardAdultCoffin = async (req, res, next) => {
                 ErrorENG: 'โปรดระบุเพศ'
             })
 
-        const coffin = await StandardAdultCoffin.find({ gender: req.body.gender })
+        const coffin = await ModernChildCoffin.find({ gender: req.body.gender })
 
         if (!coffin)
             return res.status(404).send({
@@ -58,17 +60,20 @@ const getByGenderStandardAdultCoffin = async (req, res, next) => {
 
         res.status(200).send(coffin)
 
+        next()
     } catch (err) {
-
+        res.status(400).send({
+            Error: 'Something Went Wrong. Please Try Again'
+        })
     }
 }
 
-//POST Method 
-const setOneStandardAdultCoffin = async (req, res, next) => {
+//POST Method
+const setOneModernChildCoffin = async (req, res, next) => {
     try {
-        const counter = await getCounter("Standard/Adult")
+        const counter = await getCounter("Modern/Child")
 
-        const coffin = new StandardAdultCoffin({
+        const coffin = new ModernChildCoffin({
             _id: counter,
             name: req.body.name,
             gender: req.body.gender,
@@ -78,7 +83,7 @@ const setOneStandardAdultCoffin = async (req, res, next) => {
         })
 
         await coffin.save()
-        await incrementCounter("Standard/Adult")
+        await incrementCounter("Modern/Child")
 
         res.status(201).send(coffin)
         next()
@@ -91,7 +96,7 @@ const setOneStandardAdultCoffin = async (req, res, next) => {
 }
 
 //PATCH Method
-const updateOneStandardAdultCoffin = async (req, res, next) => {
+const updateOneModernChildCoffin = async (req, res, next) => {
     const updates = Object.keys(req.body)
     const allowedUpdated = ['_id', 'name', 'gender', 'description', 'materials', 'price']
 
@@ -102,8 +107,9 @@ const updateOneStandardAdultCoffin = async (req, res, next) => {
             ErrorTH: 'โปรดอัพเดทหรือแก้ไขข้อมูลที่ถูกต้อง'
         })
 
+
     try {
-        const coffin = await StandardAdultCoffin.findOne({ _id: req.body._id })
+        const coffin = await ModernChildCoffin.findOne({ _id: req.body._id })
 
         if (!coffin)
             return res.status(404).send({
@@ -121,13 +127,12 @@ const updateOneStandardAdultCoffin = async (req, res, next) => {
             ErrorTH: 'อัพเดทหรือแก้ไขไม่สำเร็จ โปรดลองอีกครั้งหรือติดต่อผู้เชี่ยวชาญ (+66946211452)'
         })
     }
-
 }
 
 module.exports = {
-    getAllStandardAdultCoffin,
-    getOneStandardAdultCoffin,
-    getByGenderStandardAdultCoffin,
-    setOneStandardAdultCoffin,
-    updateOneStandardAdultCoffin
+    getAllModernChildCoffin,
+    getOneModernChildCoffin,
+    getByGenderModernChildCoffin,
+    setOneModernChildCoffin,
+    updateOneModernChildCoffin
 }
