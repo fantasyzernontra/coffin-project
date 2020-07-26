@@ -1,0 +1,14 @@
+.cardContainer {
+    padding: 20px 10%;
+    margin: 5px;
+    display: grid;
+    gap: 20px;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 414px) {
+    .cardContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

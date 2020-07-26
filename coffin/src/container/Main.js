@@ -10,7 +10,7 @@ const Main = props => {
         <Aux>
             <Switch>
                 <Route path='/' exact component={Home}/>
-                <Route path='/standard' render={(props) => <Test {...props} passed={props.passed} />}/>
+                <Route path='/standard' component={Test}/>
                 <Route path='/modern' component={Test}/>
             </Switch>
         </Aux>

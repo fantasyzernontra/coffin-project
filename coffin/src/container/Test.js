@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Aux from '../hoc/Aux/Aux'
+import ProductOverviews from '../components/ProductOverviews/ProductOverviews'
 
 class Test extends Component {
     state = {
@@ -8,9 +9,9 @@ class Test extends Component {
     }
 
     componentDidMount() {
-        const { passed, testState } = this.props.location.state
+        // const { passed, testState } = this.props.location.state
 
-        this.setState({ passed, testState })
+        // this.setState({ passed, testState })
     }
 
     render() {
@@ -18,9 +19,7 @@ class Test extends Component {
 
         return (
             <Aux>
-                From Test Page.
-                {this.state.passed}
-                {this.state.testState}
+                <ProductOverviews/>
             </Aux>
         )
     }

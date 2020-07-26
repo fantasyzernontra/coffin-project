@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useMediaQuery } from 'react-responsive'
 
@@ -18,8 +18,6 @@ import {
 import { Link } from 'react-router-dom'
 
 const NavBar = props => {
-
-    const [testState, SetTestState] = useState('From Navbar')
 
     const isMobile = useMediaQuery({
         query: '(max-width: 959px)'
@@ -41,8 +39,7 @@ const NavBar = props => {
                             <NavDropdown className="p-2" title="ผู้ชาย" drop={isMobile ? "down" : "right"}>
                                 <DropdownItem as="button">
                                     <NavLink as={Link} to={{
-                                        pathname: '/standard',
-                                        state: {testState}
+                                        pathname: '/standard'
                                     }}>มาตรฐาน</NavLink>
                                 </DropdownItem>
                                 <DropdownItem as="button">

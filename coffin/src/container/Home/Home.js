@@ -9,14 +9,6 @@ import Aux from '../../hoc/Aux/Aux'
 import { Link } from 'react-router-dom'
 
 class Home extends Component {
-    state = {
-        passed: ''
-    }
-
-    testPropsHandler(event) {
-        const temp = event.target.value
-        this.setState({passed: temp})
-    }
 
     render() {
         return (
@@ -62,12 +54,6 @@ class Home extends Component {
                         </Carousel.Item>
                     </Carousel>
                 </div>
-                <input onChange={(event) => this.testPropsHandler(event)}/>
-                {this.state.passed}
-                <Link to={{
-                    pathname:'/standard',
-                    state: {passed: this.state.passed}
-                }}>Test Props</Link>
             </Aux >
         )
     }
