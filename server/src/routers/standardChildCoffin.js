@@ -9,7 +9,7 @@ const {
     updateOneStandardChildCoffin
 } = require('../controllers/standardChildCoffinControllers')
 
-Router.get('/coffin/standardChild',  getAllStandardChildCoffin)
+Router.get('/coffin/standardChild', getAllStandardChildCoffin)
 
 Router.get('/coffin/standardChild/gender', getByGenderStandardChildCoffin)
 

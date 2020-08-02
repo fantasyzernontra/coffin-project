@@ -4,7 +4,7 @@ const { getCounter, incrementCounter } = require('../util/counterUtil')
 //GET Method
 const getAllModernAdultCoffin = async (req, res, next) => {
     try {
-        const coffin = await ModernAdultCoffin.find({})
+        const coffin = await ModernAdultCoffin.find({}, null, {sort: {'_id': -1}})
 
         if (!coffin)
             return res.status(404).send({
@@ -25,7 +25,7 @@ const getAllModernAdultCoffin = async (req, res, next) => {
 const getOneModernAdultCoffin = async (req, res, next) => {
     try {
         const searchEvidence = Object.keys(req.body)
-        const coffin = await ModernAdultCoffin.findOne({})
+        const coffin = await ModernAdultCoffin.findOne({ _id: req.body._id })
 
         if (!coffin)
             return res.status(404).send({

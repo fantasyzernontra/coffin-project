@@ -6,7 +6,6 @@ import {
 
 import styles from './Home.module.css'
 import Aux from '../../hoc/Aux/Aux'
-import { Link } from 'react-router-dom'
 
 class Home extends Component {
 

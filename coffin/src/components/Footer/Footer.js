@@ -19,15 +19,15 @@ const Footer = props => {
             <div className={styles.container}>
                 <Container>
                     <Row className="mt-2">
-                        <Col lg={6} md={12}>
+                        <Col lg={6} md={6}>
                             <h3>จริงใจโลงศพ</h3>
                         </Col>
                         {/* Visible only small screen */}
-                        <Col lg={6} md={12} className="d-sm-block d-md-none">
+                        <Col lg={6} md={6} className="d-sm-block d-md-none">
                             <p>ที่อยู่ค่ะ</p>
                         </Col>
                         {/* Visible only medium and large screen */}
-                        <Col lg={6} md={12} className="d-none d-md-block">
+                        <Col lg={6} md={6} className="d-none d-md-block">
                             <img
                                 src={facebook}
                                 className={styles.Icon}
@@ -38,10 +38,10 @@ const Footer = props => {
                     </Row>
                     <Row className="mt-2">
                         {/* Visible only medium and large screen */}
-                        <Col lg={6} md={12} className="d-none d-md-block">
+                        <Col lg={6} md={6} className="d-none d-sm-block">
                             <p>ที่อยู่ค่ะ</p>
                         </Col>
-                        <Col lg={6} md={12} className="d-none d-md-block">
+                        <Col lg={6} md={6} className="d-none d-md-block">
                             <img
                                 src={line}
                                 className={styles.Icon}
@@ -51,10 +51,10 @@ const Footer = props => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col lg={6} md={12} className="d-none d-md-block">
+                        <Col lg={6} md={6} className="d-none d-md-block">
                             <p>ที่อยู่ค่ะ</p>
                         </Col>
-                        <Col lg={6} md={12} className="d-none d-md-block">
+                        <Col lg={6} md={6} className="d-none d-md-block">
                             <img
                                 src={phone}
                                 className={styles.Icon}

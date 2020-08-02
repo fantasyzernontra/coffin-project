@@ -1,0 +1,25 @@
+.CardTextContainer {
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    padding: 30px;
+}
+
+.Text {
+    flex: 1;
+    width: 100%;
+    margin-top: 90%;
+    -webkit-transition: color 1s;
+    transition: color 1s;
+    font-size: 1rem;
+}
+
+.Text:hover {
+    color: #e6db7a;
+}
+
+@media (min-width: 1080px) {
+    .Text {
+        font-size: 1.5rem
+    }
+}

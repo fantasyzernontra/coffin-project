@@ -1,3 +1,28 @@
-.nav {
-     background-color: green;
+.logoWrapper {
+     position: absolute;
+}
+
+.logo {
+     position: relative;
+     z-index: 2;
+}
+
+.navBar {
+     z-index: 1;
+}
+
+.cartWrapper {
+     padding: 15px;
+}
+
+.cart {
+     display: inline-block;
+}
+
+.cartLink:active, .cartLink:visited, .cartLink:hover, .cartLink:link {
+     color: black;
+}
+
+.HeaderBrand:active, .HeaderBrand:visited, .HeaderBrand:hover, .HeaderBrand:link {
+     color: black;
 }
