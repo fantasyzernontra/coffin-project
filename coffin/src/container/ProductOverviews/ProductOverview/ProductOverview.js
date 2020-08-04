@@ -38,11 +38,16 @@ const ProductOverview = props => {
         let type = props.type === 'มาตรฐาน' ? 'standard' : 'modern'
         let gender = props.gender !== 'ทุกเพศ' ? '' : '/gender'
 
+        console.log(`/${type}${AgeType}${gender}`)
         Axios.get(`/${type}${AgeType}${gender}`)
             .then(response => {
+                console.log(response.data)
                 setCoffin(response.data)
             })
-            .catch(err => setCoffin(null))
+            .catch(err => {
+                console.log(err)
+                setCoffin(null)
+            })
 
 
     }, [props.ageType, props.gender, props.type])

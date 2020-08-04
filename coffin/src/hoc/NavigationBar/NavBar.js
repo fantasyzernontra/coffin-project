@@ -285,7 +285,7 @@ const NavBar = props => {
                         </NavDropdown>
                         <NavLink
                             onClick={ExpandedHandler}
-                            as={Link} to="/">
+                            as={Link} to="/contact">
                             ติดต่อเรา
                         </NavLink>
                         <NavLink
